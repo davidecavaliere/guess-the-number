@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
 
 var NumberSchema = new Schema({
   value: Number,
-  date: { type : Date, default : Date.now }
+  date: { type : Date, default : Date.now },
+  winning : Boolean
 });
 
 module.exports = mongoose.model('Number', NumberSchema);
