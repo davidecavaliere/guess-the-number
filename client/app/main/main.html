@@ -4,20 +4,20 @@
 
 <md-content layout="column" layout-padding layout-margin layout-align="center center">
   <h1>Please enter a number betwee 1 and 100</h1>
-  <h2> You have {{attemps}} attemps left</h2>
+  <h2> You have {{attempts}} attempts left</h2>
   <div layout="column">
     <form name="form">
 
       <md-input-container flex>
         <label>A number</label>
-        <input type="number" ng-required="true" ng-min="1" ng-max="100"  name="number" ng-model="number" ng-disabled="attemps == 0">
+        <input type="number" ng-required="true" ng-min="1" ng-max="100"  name="number" ng-model="number" ng-disabled="attempts == 0">
         <div ng-messages="form.number.$error">
           <div ng-message="required">You must input a number</div>
           <div ng-message="max">Number must be lower or equal to 100</div>
           <div ng-message="min">Number must be equal or greater than 1</div>
         </div>
       </md-input-container>
-      <md-button type="submit" ng-click="selectNumber(number);" ng-disabled="attemps == 0">
+      <md-button type="submit" ng-click="selectNumber(number);" ng-disabled="attempts == 0">
         <md-icon>check</md-icon> Guess
       </md-button>
     </form>

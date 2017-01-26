@@ -7,7 +7,7 @@ angular.module('bazooKaApp')
   var winningNumber = NumberService.getRandomNumber();
   $log.debug('winning number is', winningNumber);
 
-  $scope.attemps = 3;
+  $scope.attempts = 3;
 
   $scope.selectNumber = function(number) {
 
@@ -27,10 +27,10 @@ angular.module('bazooKaApp')
         $scope.tryAgainMessage = false;
       } else {
         $scope.tryAgainMessage = true;
-        $scope.attemps--;
+        $scope.attempts--;
       }
 
-      if ($scope.attemps == 0) {
+      if ($scope.attempts == 0) {
         $scope.refreshMessage = true;
         $scope.tryAgainMessage = false;
 
