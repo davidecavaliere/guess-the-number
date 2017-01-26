@@ -1,31 +1,77 @@
-# vazzappa.com
+# Guess the number
 
-Vazzappa is a projects incubator or a showcase of my part time projects. At the moment it is incubating three main projects. They all share an express.js web server, mongodb persistence layer, angular.js front end and they all make a heavy use of web socket as main communication layer for data with a socket.io engine.
+Hello guys at HCL. This is my attempt to build a guess the number app.
 
-## Why?
+I used my usual working enviroment which is based on the angular-fullstack-generator for yeoman (a.k.a. yo) plus some more things I added like angular material. It's probably a bit overkilled for this test but it's something I'm familiar with.
 
-###First of all because a fullstack javascript makes the developing process pretty lean and prototyping even leaner.
-Then because Node.js, with the use of require, makes javascript server side developing compact and clean and modularization is no more a issue.
-Angular.js gives to the front end developer the ability to modularize and separate concerns and testing.
-web sockets allows us to build blazing fast single page application reducing the overhead due to http communications and no trickery for server pushes.
-We all know how important are those aspects when we need to deliver a smooth user experience.
-MongoDB to finish the picture is the perfect companion of those fellows.
+## Technologies in place
 
-### Then... The importance of using web sockets
+- node with express.js and socket.io (even though it's not being used in this app.)
+- MongoDB and Mongoose (ODM)
+- grunt as task runner
+- angular.js version 1.4
 
-A modern web application is made of three main layers: UI, API, Persistence.
-<!-- In the last few years we are migrating from a MVC model to were most of the code were server side resident to a more complex multi pattern structure.  -->
-The API layer hides the business logic and the complexity of the persistence layer and interact with the UI module through http connections. Usually with ajax calls to REST APIs. Every ajax request will require a new http connection. Using web sockets for data communications gives a great performance boost to our webapp.
-Arun Gupta did some nice tests here [http://blog.arungupta.me/rest-vs-websocket-comparison-benchmarks/](http://blog.arungupta.me/rest-vs-websocket-comparison-benchmarks/), and it looks like we want to forget quickly about GET, POST and so on. My personal opinion is that we are going to use web sockets for more than what they were thought to do. In other words replace every current ajax call a web app can do to a event driven paradigm.
-<!-- TODO: suggest standard for REST-like data query -->
+Server code in in the server folder and client code is in the client/app folder. APIs are defined in server/api folder.
 
-## The incubated projects... So far
+# How to run the application
+Best way to run this application is to use a couple of docker containers but you can run it on any node enabled machine with mongodb.
 
-### fLog
-fLog is a pretty simple blogging platform with markdown support blog entries are called stories. Story submission does not use http neither ajax calls. Blogs entry are stored on mongo db and new posts are updated real time to the connected users. fLog is basically an angular.js module comprehending few directives and some services. Blog posts are first get through a API call to a standard Restfull url and then kept syncronized through web sockets. Implementation details on this [blog's story](/fLog/55cc9c5dbe9d010300448fe6)
 
-### chat
-Simple chat application. Uses web sockets for all data comunications and mongo to persist the chats. Features several mongo db goodies such as the ability to set a field of the to-be-persisted object if it is actually new (to set the owner of a room). Ability to push items to an array only if that item is not yet there (to add users to a room only if is not already there). Arrays with capacity limit (to just old the right number of message to keep in store).
+## Run on a local machine
 
-### play
-Small music manager application. Can upload music files and append them to a play queue. Features an [angular js uploader](https://github.com/davidecavaliere/angular-file-upload) module that streams the files to the server instead of uploading them with classic methods. Files are stored on mongodb's gridfs.
+In the zipped file there are already all npm_modules and bower packages downloaded. You'll just need a local instance on mongodb running.
+This app assumes that you're mongodb instance is available at
+``` mongodb:27017 ```
+database name would be bazooka-dev
+
+You can change this configuration editing the file
+
+``` server/config/environment/development.js ```
+
+then just run
+
+``` grunt serve ```
+
+from the root of the app. Meaning this folder.
+
+## Running on a docker instance.
+
+You'll need to run a docker machine with mongodb.
+
+``` docker run --name mongodb -d mongo  ```
+
+then from the root of this app run the following command
+
+``` docker run -it --name hcl-machine-0 -v $PWD:/home/developer/app -w /home/developer/app --link mongodb:mongodb -p 9000:9000 davidecavaliere/mean-dev:0.12 ```
+
+You should be dropped to a shell. Change to the developer user.
+
+``` su developer ```
+
+password is developer
+
+finally you can run
+
+``` grunt serve ```
+
+### Open the app in the browser
+
+You should be able to see the app in you're browser going to  ``localhost:9000`` no matter how you decided to run the app.
+
+## What is missing
+Unfortunally I'm having some problems in setting up a working e2e test environment at this moment so I'm not able to provide any tests for this app.
+I little quirk happens when the validation message appears under the input box regarding the button on its side. I'm not fixing it for now, sorry.
+
+## Tips and Tricks
+The winning number is changing every time you refresh the page such as the number of attempts gets resetted.
+If you wanna play easy just open the console and you'll see waht number is the winning one.
+
+### Last notice
+There may be around some code that I may forgot to clean coming from other projects or whatever. You're free to give a look around but consider that that may be old code or code wrote just to try things. So don't be too picky about that.
+Around thing I want to mention is the absense of code comment which has to reasons: the limited amount of time and the obviousness of the code itself.
+
+Thanks for reading this untill the very end.
+
+Have a great day,
+
+D.
