@@ -1,0 +1,27 @@
+
+
+.attachment {
+    padding: 4px 11px;
+    margin-right: 14px;
+    border-radius: 5px;
+}
+
+.list-header {
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+.selected {
+  background: rgba(0,0,0,0.2);
+  &:hover {
+    background-color: rgba(0,0,0,0.18);
+  }
+}
+
+
+md-list md-list-item button.md-button:not([disabled]):hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+// hide button in md-datepicker

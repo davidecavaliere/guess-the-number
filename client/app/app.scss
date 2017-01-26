@@ -1,0 +1,46 @@
+
+
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+// URL to base font directory
+$icon-font-path: "/bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+
+@import 'bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'font-awesome/scss/font-awesome';
+
+@import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+html, body {
+  font-family: 'Maven Pro', sans-serif;
+}
+// Component styles are injected through grunt
+// injector
+@import 'account/login/login.scss';
+@import 'admin/admin.scss';
+@import 'main/main.scss';
+@import 'modal/modal.scss';
+@import 'navbar/navbar.scss';
+// endinjector
+
+// .md-icon-button {
+//   border-radius: 12%;
+// }
+//
+// .md-button.md-fab {
+//   box-shadow: none;
+// }
+
+//fix new angular.material errors div
+md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+
+md-autocomplete {
+  // margin : 8px;
+}
+
+md-autocomplete[md-floating-label] md-input-container {
+  padding-bottom: 0px;
+  // margin : 0px;
+}
