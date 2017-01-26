@@ -16,8 +16,6 @@ html, body {
 }
 // Component styles are injected through grunt
 // injector
-@import 'account/login/login.scss';
-@import 'admin/admin.scss';
 @import 'main/main.scss';
 @import 'modal/modal.scss';
 @import 'navbar/navbar.scss';

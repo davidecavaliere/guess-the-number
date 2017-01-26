@@ -11,41 +11,11 @@ angular.module('bazooKaApp', [
   'ngMessages'
 ])
   .config(function (
-      $logProvider,
-      $stateProvider, $urlRouterProvider,
-      $locationProvider, $httpProvider, $mdIconProvider,
-      $mdThemingProvider,
-      $translateProvider,
-      $mdDateLocaleProvider,
-      $mdToastProvider
+      $urlRouterProvider,
+      $httpProvider,
+      $locationProvider,
+      $mdThemingProvider
     ) {
-
-      // set up date formatter
-      $mdDateLocaleProvider.formatDate = function(date) {
-        return moment(date).format('DD/MM/YYYY');
-      };
-
-      $mdDateLocaleProvider.parseDate = function(dateString) {
-        var m = moment(dateString, 'DD/MM/YYYY', true);
-        return m.isValid() ? m.toDate() : new Date(NaN);
-      };
-
-    // set up translations key
-
-
-
-    // translation sanitize security settings
-    $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
-
-    // defaul language
-    $translateProvider.preferredLanguage('en-GB');
-
-    var lang = window.navigator.language || window.navigator.userLanguage;
-    if (lang.indexOf('it') >= 0) {
-      $translateProvider.preferredLanguage('it');
-    }
-
-
 
     $urlRouterProvider
       .otherwise('/');
@@ -61,9 +31,6 @@ angular.module('bazooKaApp', [
     $mdThemingProvider.theme('default')
       // .dark()
       .primaryPalette('blue')
-
-    // TODO: must switch off when on live
-    $logProvider.debugEnabled(true);
 
   })
 
