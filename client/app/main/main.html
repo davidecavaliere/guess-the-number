@@ -4,21 +4,31 @@
 
 <md-content layout="column" layout-padding layout-margin layout-align="center center">
   <h1>Please enter a number betwee 1 and 100</h1>
-  <div layout="row">
+  <h2> You have {{attemps}} attemps left</h2>
+  <div layout="column">
     <form name="form">
 
       <md-input-container flex>
         <label>A number</label>
-        <input type="number" ng-required="true" ng-min="1" ng-max="100"  name="number" ng-model="number">
+        <input type="number" ng-required="true" ng-min="1" ng-max="100"  name="number" ng-model="number" ng-disabled="attemps == 0">
         <div ng-messages="form.number.$error">
           <div ng-message="required">You must input a number</div>
           <div ng-message="max">Number must be lower or equal to 100</div>
           <div ng-message="min">Number must be equal or greater than 1</div>
         </div>
       </md-input-container>
-      <md-button ng-click="selectNumber(number);">
+      <md-button type="submit" ng-click="selectNumber(number);" ng-disabled="attemps == 0">
         <md-icon>check</md-icon> Guess
       </md-button>
     </form>
+  </div>
+  <div ng-show="winnerMessage">
+    <h2>Yeah... that's number!</h2>
+  </div>
+  <div ng-show="tryAgainMessage">
+    <h2>Ops... that's not the number.. try again.</h2>
+  </div>
+  <div ng-show="refreshMessage">
+    <h2>You didn't make it this time. Refresh the page to start play again.</h2>
   </div>
 </md-content>
