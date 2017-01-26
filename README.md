@@ -1,6 +1,6 @@
 # Guess the number
 
-Hello guys at HCL. This is my attempt to build a guess the number app.
+This is my attempt to build a guess the number app.
 
 I used my usual working enviroment which is based on the angular-fullstack-generator for yeoman (a.k.a. yo) plus some more things I added like angular material. It's probably a bit overkilled for this test but it's something I'm familiar with.
 
@@ -19,7 +19,9 @@ Best way to run this application is to use a couple of docker containers but you
 
 ## Run on a local machine
 
-In the zipped file there are already all npm_modules and bower packages downloaded. You'll just need a local instance on mongodb running.
+You'll need to run ``npm install && bower install``
+
+You'll also need a local instance on mongodb running.
 This app assumes that you're mongodb instance is available at
 ``` mongodb:27017 ```
 database name would be bazooka-dev
