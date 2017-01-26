@@ -69,6 +69,7 @@ If you wanna play easy just open the console and you'll see waht number is the w
 ### Last notice
 There may be around some code that I may forgot to clean coming from other projects or whatever. You're free to give a look around but consider that that may be old code or code wrote just to try things. So don't be too picky about that.
 Around thing I want to mention is the absense of code comment which has to reasons: the limited amount of time and the obviousness of the code itself.
+One last thing: you may want to give a look at the git history.
 
 Thanks for reading this untill the very end.
 
