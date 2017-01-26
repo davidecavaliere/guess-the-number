@@ -14,13 +14,15 @@ angular.module('bazooKaApp')
     if ($scope.form.$valid) {
       $log.debug('number selected', number);
 
-      NumberService.logNumber({ value : number }, function() {
+      var winning = number == winningNumber;
+
+      NumberService.logNumber({ value : number, winning : winning }, function() {
         $log.debug('Number logged successfully');
       }, function(err) {
         $log.error('Error logging number', err);
       });
 
-      if (number == winningNumber) {
+      if (winning) {
         $scope.winnerMessage = true;
         $scope.tryAgainMessage = false;
       } else {
