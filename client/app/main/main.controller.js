@@ -14,6 +14,12 @@ angular.module('bazooKaApp')
     if ($scope.form.$valid) {
       $log.debug('number selected', number);
 
+      NumberService.logNumber({ value : number }, function() {
+        $log.debug('Number logged successfully');
+      }, function(err) {
+        $log.error('Error logging number', err);
+      });
+
       if (number == winningNumber) {
         $scope.winnerMessage = true;
         $scope.tryAgainMessage = false;
