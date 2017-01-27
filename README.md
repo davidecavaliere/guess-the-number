@@ -60,6 +60,14 @@ finally you can run
 
 You should be able to see the app in you're browser going to  ``localhost:9000`` no matter how you decided to run the app.
 
+### Running Tests
+To run the test suite execute the following command
+`` docker run -it --privileged --rm --link hcl-machine-0:app -v /dev/shm:/dev/shm -v $(pwd):/protractor webnicer/protractor-headless protractor.conf.js``
+Please note:
+- the web server must be up and running so be sure that express is serving the app.
+- Sometimes the machine with the headless chrome doesn't render the page quickly enough causing the first test to fail. If this happens please kill the command and run it again.
+
+
 ## What is missing
 I little quirk happens when the validation message appears under the input box regarding the button on its side. I'm not fixing it for now, sorry.
 
