@@ -6,11 +6,11 @@
 exports.config = {
   // The timeout for each script run on the browser. This should be longer
   // than the maximum time your application needs to stabilize between tasks.
-  allScriptsTimeout: 110000,
+  allScriptsTimeout: 220000,
 
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
-  baseUrl: 'http://localhost:' + (process.env.PORT || '9000'),
+  baseUrl: 'http://app:' + (process.env.PORT || '9000'),
 
   // If true, only chromedriver will be started, not a standalone selenium.
   // Tests for browsers other than chrome will not run.
@@ -31,7 +31,10 @@ exports.config = {
   // and
   // https://code.google.com/p/selenium/source/browse/javascript/webdriver/capabilities.js
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    // 'chromeOptions' : {
+    //   'args': ['no-sandbox --healess']
+    // }
   },
 
   // ----- The test framework -----

@@ -5,6 +5,6 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/bazooka-test'
+    uri: 'mongodb://mongodb/bazooka-test'
   }
 };
